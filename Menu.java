@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Menu {
 	private String title;
 	private List<String> options;
+	private Banco banco = new Banco();
 
 	public Menu(List<String> options) {
 		this.title = "Menu";
@@ -34,11 +35,13 @@ public class Menu {
 				op = Integer.parseInt(str);
 			}
 			catch (NumberFormatException e) {
-				op =0;
+				op = 0;
 			}
 			if (op>=i){
 				System.out.println("Opcao errada!");
 				op=0;
+			}else {
+				banco.selecionarOp(op);
 			}
 
 		}
